@@ -134,9 +134,9 @@ class Predictor(BasePredictor):
 
         # self.opt = tyro.cli(AllConfigs)
         self.opt = Options(
-            input_size=512, #was 256
-            up_channels=(1024, 1024, 512, 256, 128), # one more decoder
-            up_attention=(True, True, True, False, False),
+            input_size=512, # was 256
+            up_channels=(1024, 1024, 512, 256, 128, 64), # was 1024, 1024, 512, 256, 128
+            up_attention=(True, True, True, False, False, False),
             splat_size=256, # was 128
             output_size=512, # render & supervise Gaussians at a higher resolution.
             batch_size=8,
