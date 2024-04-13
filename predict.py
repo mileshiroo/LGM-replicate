@@ -134,18 +134,18 @@ class Predictor(BasePredictor):
 
         # self.opt = tyro.cli(AllConfigs)
         self.opt = Options(
-            input_size=256,
+            input_size=512, #was 256
             up_channels=(1024, 1024, 512, 256, 128), # one more decoder
             up_attention=(True, True, True, False, False),
-            splat_size=256, #was 128
-            output_size=1024, #was 512 render & supervise Gaussians at a higher resolution.
+            splat_size=256, # was 128
+            output_size=512, # render & supervise Gaussians at a higher resolution.
             batch_size=8,
             num_views=8,
             gradient_accumulation_steps=1,
             mixed_precision='bf16',
             resume=ckpt_path,
         )
-
+        
         # self.model
         self.model = LGM(self.opt)
 
